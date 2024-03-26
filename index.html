@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Hunt</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+    img{
+        width:50px;
+        height:50px;
+    }
+    .navbar-brand{
+        font-size:2rem;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+    }
+    @media  screen and (max-width:900px){
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    @media screen and (max-width:400px){
+        .navbar-brand{
+            font-size:1.3rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+        }
+    }
+    @media screen and (max-width:300px){
+        .navbar-brand{
+            font-size: 1rem;
+        }
+        .container h5{
+            font-size: 0.8rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div>
+            <img src="number.png">
+            <a class="navbar-brand ml-3" style="color:red" href="#">Number Hunt</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#" style="color:white;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about-us" style="color:white;">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="feedback.html" style="color:white;">Feedbacks</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      
+<div class="container">
+    <div class="section">
+        <p><label style="font-size:1.4rem">W</label>elcome to <b>Number Hunt</b>, an exhilarating game of memory and agility!</p>
+        <p>In this captivating challenge, you'll be presented with a series of random numbers that you must memorize within a limited time frame.</p>
+        <p>As you progress through various levels, the sequences become more complex and require quicker thinking. With each successful recall, you'll unlock new stages and compete for high scores.</p>
+        <p>Number Hunt is not just about remembering numbers, but also about testing your mental sharpness and reflexes. Are you ready to embark on this thrilling journey and become the ultimate Number Hunter?</p>
+    </div>
+</div>
+
+<div class="container mx-auto">
+    <p style="color:rgb(14, 16, 20);">
+       <label style="color:darkblue;font-size:1.5rem">Are You Ready?</label> Click The Below Button To Start The Game!! 🔥🎮
+    </p>
+    <button id="start" class="btn animated-button">Start Game</button><br><br>
+</div>
+
+<footer class="bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-us" id="about-us">
+                    <div class="about">
+                        <p><strong>About Us</strong></p>
+                        <p>We Are The Members of Money Heist Stall</p>
+                        <p>We have developed This Game to test your Mental sharpness and typing skills 🧠⌨️</p>
+                        <p>Made By Team Money Heist 💰🔫</p>
+                    </div>
+                    <div class="contact">
+                        <p><strong>Contact Us On</strong></p>
+                        <div class="icons">
+                            <a href="#"><i class="fa fa-facebook text-white"></i></a>
+                            <a href="#"><i class="fa fa-instagram text-white"></i></a>
+                            <a href="#"><i class="fa fa-twitter text-white"></i></a>
+                            <a href="#"><i class="fa fa-whatsapp text-white"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-us" id="contact-us">
+                    <div class="feedback">
+                        <p><strong>FeedBack</strong></p>
+                        <input type="text" id="idnumber" class="form-control mb-2 bg-dark text-white" placeholder="Enter Your ID Number">
+                        <textarea class="form-control mb-2 bg-dark text-white" placeholder="Enter Your Feedback" id="feedback" rows="5"></textarea>
+                        <button onclick="submitFeedback()" id="submitfeedback" class="btn btn-primary">Submit Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center text-white">
+        <h5>&copy; 2024 Number Hunt. All rights reserved.</h5>
+    </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("start").addEventListener("click", function() {
+                var randomNumber = generateRandomNumber();
+                localStorage.setItem("randomNumber", randomNumber);
+                window.location.href = "game.html";
+            });
+        });
+        function generateRandomNumber() {
+            var digits = [2, 3, 4, 5, 6, 7, 8, 9];
+            var number = [];
+            var stringNumber = '';
+            while (number.length !== 10) {
+                var digit = digits[Math.floor(Math.random() * digits.length)];
+                if (number.length === 0) {
+                    number.push(digit);
+                    stringNumber += digit.toString();
+                } else {
+                    if (!number.slice(-3).includes(digit) &&
+                        digit !== number[number.length - 1] + 1 &&
+                        number.filter(x => x === digit).length < 2 &&
+                        ![number.slice(0, 1), number.slice(4, 5), number.slice(5, 6), number.slice(9, 10)].some(sub => JSON.stringify(sub) === JSON.stringify([digit])) &&
+                        !stringNumber.includes(digit.toString() + number[number.length - 1]) &&
+                        !stringNumber.includes(number[number.length - 1].toString() + digit)) {
+                        if ((number.length > 4 && digit !== number[number.length - 5]) || number.length < 5) {
+                            number.push(digit);
+                            stringNumber += digit.toString();
+                        } else {
+                            number = number.slice(-2);
+                            stringNumber = stringNumber.slice(-2);
+                        }
+                    }
+                }
+            }
+            return stringNumber;
+        }
+        function submitFeedback() {
+            var idNumber = document.getElementById('idnumber').value.trim();
+            var feedback = document.getElementById('feedback').value.trim();
+            if (!/^N[A-Za-z0-9]{6}$/.test(idNumber)) {
+                alert("ID number should start with 'N' and have 6 letters or digits after that.");
+                return;
+            }
+            if (feedback.trim() === "") {
+                alert("Please enter your feedback.");
+                return;
+            }
+            var feedbackData = {
+                idNumber: idNumber,
+                feedback: feedback
+            };
+            var existingFeedback = JSON.parse(localStorage.getItem('feedback')) || [];
+            existingFeedback.push(feedbackData);
+            localStorage.setItem('feedback', JSON.stringify(existingFeedback));
+            document.getElementById('idnumber').value = '';
+            document.getElementById('feedback').value = '';
+        }
+        
+    </script>
+</body>
+</html>

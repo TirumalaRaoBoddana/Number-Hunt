@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks</title> 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .feedbacks {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .feedback-container {
+            width: 100%;
+            margin: auto;
+        }
+        .feedback-card {
+            margin-bottom: 20px;
+        }
+        .feedback-card p {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="feedbacks">Feedbacks</h2>
+    <div id="feedbackContainer" class="feedback-container">
+    </div>
+    <script>
+        function loadFeedbacks() {
+            var feedbacks = JSON.parse(localStorage.getItem('feedback')) || [];
+            var feedbackContainer = document.getElementById('feedbackContainer');
+            feedbackContainer.innerHTML = '';
+            feedbacks.forEach(function(feedback, index) {
+                var feedbackCard = document.createElement('div');
+                feedbackCard.classList.add('feedback-card', 'card', 'p-3'); 
+                var idNumberParagraph = document.createElement('p');
+                idNumberParagraph.classList.add('card-text'); 
+                idNumberParagraph.textContent = 'ID Number: ' + feedback.idNumber;
+                var feedbackParagraph = document.createElement('p');
+                feedbackParagraph.classList.add('card-text'); 
+                feedbackParagraph.textContent = 'Feedback: ' + feedback.feedback;
+                feedbackCard.appendChild(idNumberParagraph);
+                feedbackCard.appendChild(feedbackParagraph);
+                feedbackContainer.appendChild(feedbackCard);
+            });
+        }
+        loadFeedbacks();
+    </script>
+</body>
+</html>
