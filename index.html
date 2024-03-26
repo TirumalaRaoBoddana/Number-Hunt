@@ -12,6 +12,11 @@
         width:50px;
         height:50px;
     }
+    a{
+        color:red;
+        font-size:2rem;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+    }
     @media  screen and (max-width:900px){
         footer{
             display: flex;
@@ -20,6 +25,14 @@
             justify-content: center;
         }
     }
+    @media screen and (max-width:400px){
+         a{
+        color:red;
+        font-size:1.5rem;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;\
+        
+    }
+    }
 </style>
 </head>
 <body>
@@ -27,7 +40,7 @@
         <div class="container d-flex justify-content-between align-items-center">
           <div>
             <img src="number.png">
-            <a class="navbar-brand ml-3" href="#" style="color:red;font-size:2rem;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Number Hunt</a>
+            <a class="navbar-brand ml-3" href="#">Number Hunt</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
