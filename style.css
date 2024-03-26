@@ -1,0 +1,38 @@
+a{
+    font-size: 1.3rem;
+}
+p{
+    font-size: 1.4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#start,#restart,#submit{
+    color:black;
+    width:150px;
+    height: fit-content;
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 4px 4px grey;
+    font-size: 1.2rem;
+    border: none;
+}
+.icons{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+    align-items: center;
+}
+.icons a{
+    margin-right: 2vw;
+}
+#start:hover{
+    background-color: black;
+    color: white;
+}
